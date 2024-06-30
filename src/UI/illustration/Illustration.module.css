@@ -1,0 +1,20 @@
+.illustration {
+    width: 50%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.illustrationTitle {
+    font-size: 48px;
+    font-weight: 600;
+    margin-top: 2rem;
+
+}
+
+.illustrationTxt {
+    font-size: 28px;
+    font-weight: 400;
+}
