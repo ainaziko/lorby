@@ -30,8 +30,8 @@ const LoginForm = () => {
     }
 
     return (
-        <form className={styles.loginForm} onSubmit={handleSubmit}>
-            <p className={styles.greeting}>Вэлком бэк!</p>
+        <form className={styles.form} onSubmit={handleSubmit}>
+            <p className={styles.title}>Вэлком бэк!</p>
             <div className={styles.inputs}>
                 <input
                     className={styles.loginInput}
@@ -58,7 +58,7 @@ const LoginForm = () => {
                     </span>
                 </div>
             </div>
-            <button className={styles.loginBtn} disabled={isSubmitting} type="submit">Войти</button>
+            <button className={styles.submitBtn} disabled={isSubmitting} type="submit">Войти</button>
             <Link to="/register" className={styles.goToRegister}>
                 У меня еще нет аккаунта
             </Link>
