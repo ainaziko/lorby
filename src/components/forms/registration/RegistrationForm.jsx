@@ -42,7 +42,7 @@ const RegistrationForm = () => {
 
     return(
         <form className={styles.form} onSubmit={handleSubmit}>
-            <button className={styles.goBackBtn} onClick={() => navigate(-1)}><img className={styles.goBackIcon} src={goBackIcon}/>Назад</button>
+            <button className={styles.goBackBtn} type="button" onClick={() => navigate(-1)}><img className={styles.goBackIcon} src={goBackIcon}/>Назад</button>
             <p className={styles.title}>Создать аккаунт Lorby</p>
             <div className={styles.inputs}>
                 <input 
