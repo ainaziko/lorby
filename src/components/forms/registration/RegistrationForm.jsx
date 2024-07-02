@@ -18,7 +18,7 @@ const RegistrationForm = () => {
 
     const navigate = useNavigate();
 
-    const {values, errors, isSubmitting,  handleChange, handleBlur, handleSubmit } = useFormik({
+    const {values, errors, isSubmitting, touched, handleChange, handleBlur, handleSubmit } = useFormik({
         initialValues: {
             email: "",
             login: "",
@@ -39,18 +39,31 @@ const RegistrationForm = () => {
     const updateConfEye = () => {
         setVisibleConfirmEye(!visibleConfirmEye);
     }
-    console.log(errors)
 
     return(
         <form className={styles.form} onSubmit={handleSubmit}>
             <button className={styles.goBackBtn} onClick={() => navigate(-1)}><img className={styles.goBackIcon} src={goBackIcon}/>Назад</button>
             <p className={styles.title}>Создать аккаунт Lorby</p>
             <div className={styles.inputs}>
-                <input className={styles.emailInput} id="email" value={values.email} placeholder="Введите адрес почты" onChange={handleChange} onBlur={handleBlur}/>
-                <input className={styles.loginInput} id="login" value={values.login} placeholder="Придумайте логин" onChange={handleChange} onBlur={handleBlur}/>
+                <input 
+                    className={errors.email && touched.email ? styles.inputError : ""}
+                    id="email" value={values.email} 
+                    placeholder="Введите адрес почты" 
+                    onChange={handleChange} 
+                    onBlur={handleBlur}
+                />
+                {errors.email && touched.email && <p className={styles.errorMsg}>- {errors.email}</p>}  
+                <input 
+                    className={errors.login && touched.login ? styles.inputError : ""}
+                    id="login" value={values.login} 
+                    placeholder="Придумайте логин" 
+                    onChange={handleChange} 
+                    onBlur={handleBlur}
+                />
+                {errors.login && touched.login && <p className={styles.errorMsg}>- {errors.login}</p>}  
                 <div className={styles.passwordInputContainer}>
                     <input
-                        className={styles.passwordInput}
+                        className={errors.password && touched.password ? styles.inputError : ""}
                         id="password"
                         name="password"
                         type={visiblePasswordEye ? "text" : "password"}
@@ -62,10 +75,11 @@ const RegistrationForm = () => {
                     <span className={styles.toggleVisibilityIcon} onClick={updatePassEye}>
                         {visiblePasswordEye ? <EyeIcon /> : <EyeOffIcon />}
                     </span>
-                </div>   
+                </div>
+                {errors.password && touched.password && <p className={styles.errorMsg}>- {errors.password}</p>}   
                 <div className={styles.passwordInputContainer}>
                     <input
-                        className={styles.passwordInput}
+                        className={errors.confirmPassword && touched.confirmPassword ? styles.inputError : ""}
                         id="confirmPassword"
                         name="confirmPassword"
                         type={visibleConfirmEye ? "text" : "password"}
@@ -77,7 +91,8 @@ const RegistrationForm = () => {
                     <span className={styles.toggleVisibilityIcon} onClick={updateConfEye}>
                         {visibleConfirmEye ? <EyeIcon /> : <EyeOffIcon />}
                     </span>
-                </div>              
+                </div>
+                {errors.confirmPassword && touched.confirmPassword && <p className={styles.errorMsg}>- {errors.confirmPassword}</p>}                
             </div>
             <button className={styles.submitBtn} disabled={isSubmitting} type="submit">Далее</button>
         </form>

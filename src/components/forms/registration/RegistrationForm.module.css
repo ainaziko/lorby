@@ -36,7 +36,7 @@
     justify-content: space-between;
 }
 
-.loginInput, .passwordInput, .emailInput, .confirmPasswordInput {
+input {
     width: 343px;
     height: 52px;
     padding-left: 1rem;
@@ -46,13 +46,17 @@
     background-color: #F8F8F8;
 }
 
+.inputError {
+    color: #c50000;
+}
+
 .passwordInputContainer {
     position: relative;
     display: flex;
     align-items: center;
 }
 
-.passwordInput {
+#password {
     width: 100%;
     padding-right: 2.5rem;
 }
@@ -79,6 +83,13 @@
     color: #292929;
     font-size: 16px;
     text-decoration: none;
+}
+
+.errorMsg {
+    color: #EC0000;
+    max-width: 340px;
+    padding: 0.1rem 0.7rem;
+    font-size: 12px;
 }
 
 @media (max-width: 768px) {
