@@ -1,0 +1,36 @@
+.greeting {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.title {
+    margin-top: 1.5rem;
+    font-size: 36px;
+    font-weight: 500;
+    color: #212121;
+}
+
+.subTitle {
+    font-size: 20px;
+    font-weight: 400;
+    color: #212121;
+}
+
+.illustrationImg {
+    margin: 2rem 0;
+    max-width: 420px;
+    max-height: 446.26px;
+}
+
+.logOutBtn {
+    max-width: 343px;
+    height: 50px;
+    border: none;
+    background-color: transparent;
+    font-size: 16px;
+    font-weight: 500;
+    color: #292929;
+}

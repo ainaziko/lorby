@@ -1,0 +1,123 @@
+.verifyContainer {
+    display: flex;
+}
+
+.emailVerifyInfo {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.textInfo {
+    width: 421px;
+    height: 404px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    color: #212121;
+}
+
+
+.goBackBtn {
+    width: 96px;
+    background-color: transparent;
+    border: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 16px;
+    font-weight: 400;
+    position: absolute;
+    top: 1.5rem;
+    left: 51%;
+}
+
+.title {
+    font-size: 24px;
+    font-weight: 500;
+}
+
+.info {
+    width: 313px;
+    color: #767676;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.spam {
+    color: #212121;
+}
+
+.emodzi {
+    font-weight: 500;
+}
+
+.resendBtn {
+    width: 343px;
+    height: 50px;
+    font-size: 16px;
+    font-weight: 500;
+    background-color: transparent;
+    border: none;
+    color: #292929;
+}
+
+.modal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    right: auto;
+    bottom: auto;
+    width: 375px;
+    height: 300px;
+    transform: translate(-50%, -50%);
+    padding: 2rem;
+    border-radius: 32px;
+    z-index: 1000;
+    background-color: white;
+    text-align: center;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.75);
+    z-index: 999;
+}
+
+.modalContaining {
+    height: 235px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.modalTitle {
+    color: #212121;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.modalInfo {
+    color: #767676;
+    font-size: 16px;
+    font-weight: bold;
+    width: 200px;
+}
+
+.modalCloseBtn {
+    width: 311px;
+    height: 50px;
+    color: #F8F8F8;
+    font-size: 16px;
+    background-color: #292929;
+    border-radius: 12px;
+}
