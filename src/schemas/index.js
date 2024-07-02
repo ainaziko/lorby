@@ -16,5 +16,5 @@ export const registrationSchema = yup.object().shape({
       .matches(/[0-9]/, 'Пароль должен содержать минимум одну цифру')
       .matches(/[@$!%*?&#]/, 'Пароль должен содержать минимум один спецсимвол (@, $, !, %, *, ?, &, #)')
       .required('Пароль обязателен'),
-    consfirmPassword: yup.string().oneOf([yup.ref('password')], null, 'Пароли не совпадают')
+      confirmPassword: yup.string().oneOf([yup.ref('password')], 'Пароли не совпадают').required('Обязательное поле')
 });  
