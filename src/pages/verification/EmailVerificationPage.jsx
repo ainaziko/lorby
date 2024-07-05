@@ -25,7 +25,7 @@ const EmailVerificationPage = ({ email }) => {
                 <button 
                     className={styles.goBackBtn} 
                     onClick={() => navigate(-1)}>
-                    <img className={styles.goBackIcon} src={goBackIcon}/>
+                    <img className={styles.goBackIcon} src={goBackIcon} alt="go back icon"/>
                     Назад
                 </button>
                 <div className={styles.textInfo}>
