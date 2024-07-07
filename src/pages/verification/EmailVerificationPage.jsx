@@ -6,9 +6,10 @@ import goBackIcon from '../../assets/back.svg'
 import Modal from 'react-modal';
 
 
-const EmailVerificationPage = ({ email }) => {
+const EmailVerificationPage = () => {
     const navigate = useNavigate();
     const [isFormVisible, setIsFormVisible] = useState(false);
+    const email = localStorage.getItem('registrationEmail');
 
     const handleResendEmail = () => {
         setIsFormVisible(true);

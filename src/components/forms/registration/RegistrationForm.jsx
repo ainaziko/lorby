@@ -14,9 +14,8 @@ const RegistrationForm = () => {
     const navigate = useNavigate();
 
     const onSubmit = async (values, actions) => {
-        console.log(values)
-        console.log(actions)
-    
+        localStorage.setItem('registrationEmail', values.email);
+        
         const userData = {
             email: values.email,
             login: values.login,
