@@ -7,7 +7,8 @@ const instance = axios.create({
 export const regAuthApi = {
     async register(userData) {
         try {
-            const response = await instance.post('/registration', userData);
+            //http://localhost:8080/api/auth/registration/test
+            const response = await instance.post('/registration/test', userData);
             console.log(response.data);
         }catch(e) {
             console.log('Error during registration', e);
