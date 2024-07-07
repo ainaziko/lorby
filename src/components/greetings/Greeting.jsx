@@ -9,6 +9,8 @@ const Greeting = ({ message }) => {
 
     const logout = async () => {
          await axios.post('logout', {}, {withCredentials: true});
+         localStorage.removeItem('accessToken');
+         delete axios.defaults.headers.common['Authorization'];
          navigate('/');
     }
 

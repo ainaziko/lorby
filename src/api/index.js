@@ -26,11 +26,7 @@ export const regAuthApi = {
     async login(loginData) {
         try {
             const response = await instance.post('/login', loginData, { withCredentials: true });
- 
-            console.log(response.data); 
-            console.log('code: ', response.status)
-            console.log('access token: ', response.data.accessToken)
-            console.log('refresh token: ', response.data.refreshToken)
+            localStorage.setItem('accessToken', response.data.accessToken);
             axios.defaults.headers.common['Authorization'] = `Bearer ${response.data.accessToken}`;
 
         }catch(e) {
