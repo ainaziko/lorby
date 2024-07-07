@@ -4,7 +4,7 @@ import Greeting from "../../components/greetings/Greeting";
 const WelcomePage = () => {
     return (
         <>
-            <Greeting message={'Добро пожаловать!'}/>
+            <Greeting message={'Добро пожаловать!!!'}/>
         </>
     )
 }
