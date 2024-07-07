@@ -2,18 +2,38 @@ import { useFormik } from "formik";
 import { Link } from "react-router-dom";
 import React, { useState } from "react";
 import { basicSchema } from "../../../schemas";
+import { useNavigate } from "react-router-dom";
 import styles from './LoginForm.module.css';
 import { ReactComponent as EyeIcon } from '../../../assets/iconEyeOn.svg'
 import { ReactComponent as EyeOffIcon } from '../../../assets/iconEyeOff.svg'
+import { regAuthApi } from '../../../api/index'
 
-const onSubmit = async (values, actions) => {
-    console.log(values);
-    console.log(actions);
-    await new Promise((resolve) => setTimeout(resolve, 1000));
-    actions.resetForm();
-}
+
 
 const LoginForm = () => {
+
+    const navigate = useNavigate();
+
+    const onSubmit = async (values, actions) => {
+        console.log(values);
+        console.log(actions);
+
+        const loginData = {
+            login: values.login,
+            password: values.password
+        }
+
+        try{
+            const response = await regAuthApi.login(loginData);
+            navigate('/comeback')
+        } catch(e) {
+            console.log('Error during registration ', e.response.data)
+        }
+
+        await new Promise((resolve) => setTimeout(resolve, 1000));
+        actions.resetForm();
+    }
+
     const [visible, setVisible] = useState(false);
 
     const { values, isSubmitting, handleChange, handleBlur, handleSubmit } = useFormik({
