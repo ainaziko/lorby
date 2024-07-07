@@ -6,17 +6,32 @@ import styles from './RegistrationForm.module.css'
 import { ReactComponent as EyeIcon } from '../../../assets/iconEyeOn.svg'
 import { ReactComponent as EyeOffIcon } from '../../../assets/iconEyeOff.svg'
 import goBackIcon from '../../../assets/back.svg'
+import { regAuthApi } from '../../../api/index'
 
-const onSubmit = async (values, actions) => {
-    console.log(values)
-    console.log(actions)
-    await new Promise((resolve) => setTimeout(resolve, 1000));
-    actions.resetForm();
-}
 
 const RegistrationForm = () => {
 
     const navigate = useNavigate();
+
+    const onSubmit = async (values, actions) => {
+        console.log(values)
+        console.log(actions)
+    
+        const userData = {
+            email: values.email,
+            login: values.login,
+            password: values.password,
+            confirmPassword: values.confirmPassword
+        }
+    
+        try {
+            await regAuthApi.register(userData);
+            navigate('/email/verify/info');
+        }catch(e) {
+            console.log('Error during registration ', e.response.data)
+        }
+        actions.resetForm();
+    }
 
     const {values, errors, isSubmitting, touched, handleChange, handleBlur, handleSubmit } = useFormik({
         initialValues: {
