@@ -15,12 +15,14 @@ export const regAuthApi = {
         }
     },
 
-    async confirm() {
-
-    },
-
-    async resendConfirm() {
-
+    async resendConfirm(userData) {
+        try {
+            const response = await instance.post('/registration/resend-confirmation', userData);
+            console.log(response);
+        }catch(e) {
+            console.log('Error handling resend confirmation email ', e);
+            throw e;
+        }
     },
 
     async login(loginData) {

@@ -4,17 +4,27 @@ import Illustration from "../../UI/illustration/Illustration";
 import styles from './EmailVerificationPage.module.css'
 import goBackIcon from '../../assets/back.svg'
 import Modal from 'react-modal';
+import { regAuthApi } from "../../api";
 
 
-const EmailVerificationPage = ({ email }) => {
+const EmailVerificationPage = () => {
     const navigate = useNavigate();
     const [isFormVisible, setIsFormVisible] = useState(false);
+    const email = localStorage.getItem('registrationEmail');
 
     const handleResendEmail = () => {
+
         setIsFormVisible(true);
     }
 
-    const handleCloseModal = () => {
+    const handleCloseModal = async() => {
+        try {
+            const userData = JSON.parse(localStorage.getItem('userData'));
+            console.log("resending ", userData)
+            await regAuthApi.resendConfirm(userData);
+        } catch (e) {
+            console.log(e);
+        }
         setIsFormVisible(false);
     };
 

@@ -24,7 +24,7 @@ const LoginForm = () => {
         }
 
         try{
-            const response = await regAuthApi.login(loginData);
+            await regAuthApi.login(loginData);
             navigate('/comeback')
         } catch(e) {
             console.log('Error during registration ', e.response.data)

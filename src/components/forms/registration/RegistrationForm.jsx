@@ -14,15 +14,14 @@ const RegistrationForm = () => {
     const navigate = useNavigate();
 
     const onSubmit = async (values, actions) => {
-        console.log(values)
-        console.log(actions)
-    
+        localStorage.setItem('registrationEmail', values.email);
+        
         const userData = {
             email: values.email,
             login: values.login,
-            password: values.password,
-            confirmPassword: values.confirmPassword
+            password: values.password
         }
+        localStorage.setItem('userData', JSON.stringify(userData));
     
         try {
             await regAuthApi.register(userData);
