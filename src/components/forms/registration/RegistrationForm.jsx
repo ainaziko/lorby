@@ -19,9 +19,9 @@ const RegistrationForm = () => {
         const userData = {
             email: values.email,
             login: values.login,
-            password: values.password,
-            confirmPassword: values.confirmPassword
+            password: values.password
         }
+        localStorage.setItem('userData', JSON.stringify(userData));
     
         try {
             await regAuthApi.register(userData);

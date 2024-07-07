@@ -7,8 +7,7 @@ const instance = axios.create({
 export const regAuthApi = {
     async register(userData) {
         try {
-            //http://localhost:8080/api/auth/registration/test
-            const response = await instance.post('/registration/test', userData);
+            const response = await instance.post('/registration', userData);
             console.log(response.data);
         }catch(e) {
             console.log('Error during registration', e);
@@ -16,12 +15,14 @@ export const regAuthApi = {
         }
     },
 
-    async confirm() {
-
-    },
-
-    async resendConfirm() {
-
+    async resendConfirm(userData) {
+        try {
+            const response = await instance.post('/registration/resend-confirmation', userData);
+            console.log(response);
+        }catch(e) {
+            console.log('Error handling resend confirmation email ', e);
+            throw e;
+        }
     },
 
     async login(loginData) {
