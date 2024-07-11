@@ -1,23 +1,28 @@
-import React, { useEffect }  from "react";
+import React, { useEffect } from "react";
 import Greeting from "../../components/greetings/Greeting";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
-const WelcomePage = () => {
+const WelcomePage = ({setIsLoggedIn}) => {
+  const location = useLocation();
+  const navigate = useNavigate();
 
-    const location = useLocation();
+  useEffect(() => {
+    const params = new URLSearchParams(location.search);
+    const accessToken = params.get('accessToken');
+    const refreshToken = params.get('refreshToken');
 
-    useEffect(() => {
-        const params = new URLSearchParams(location.search);
-        console.log(params)
-        localStorage.setItem('accessToken', params.get('accessToken') || '');
-        localStorage.setItem('refreshToken', params.get('refreshToken') || '');
-    }, [location]);
+    if (accessToken && refreshToken) {
+      localStorage.setItem('accessToken', accessToken);
+      localStorage.setItem('refreshToken', refreshToken);
+      navigate('/welcome', { replace: true });
+    }
+  }, [location, navigate]);
 
-    return (
-        <>
-            <Greeting message={'Добро пожаловать!!!'}/>
-        </>
-    )
-}
+  return (
+    <>
+      <Greeting message={'Добро пожаловать!!!'} />
+    </>
+  );
+};
 
 export default WelcomePage;
