@@ -34,7 +34,6 @@ function App() {
               
             ) : (
               <>
-                <Route path="/welcome/*" element={<WelcomePage/>}/>
                 <Route path="/register" element={<RegistrationPage/>}/> 
                 <Route path="/email/verify/info" element={<EmailVerificationPage/>}/> 
                 <Route path="*" element={<Navigate to={"/"} replace/>} />
